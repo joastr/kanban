@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test:html",
-	  "test:html": "globstar nu-html-checker *.html",
+    "test:html": "globstar nu-html-checker *.html",
     "init-project": "mkdirp vendor images && curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore"
   },
   "keywords": [],
@@ -16,5 +16,7 @@
     "browser-sync": "^2.26.3",
     "nu-html-checker": "^0.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "sortablejs": "^1.7.0"
+  }
 }
