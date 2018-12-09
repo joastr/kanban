@@ -15,11 +15,17 @@ body{
     background-color: $aquamarine;
 }
 
+* {
+outline: none;
+outline-offset: 0;
+}
+
 %flex-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     max-width: 1500px;
+    flex-direction: row;
 }
 
 .row:before, .row:after {
