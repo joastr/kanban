@@ -3,8 +3,8 @@
 var baseUrl = 'https://kodilla.com/pl/bootcamp-api';
 var prefix = "https://cors-anywhere.herokuapp.com/";
 var myHeaders = {
-  'X-Client-Id': 'X-Client-Id',
-  'X-Auth-Token': 'X-Auth-Token'
+  'X-Client-Id': '3838',
+  'X-Auth-Token': '12bb29e3b81209a529c2c42c0518e8ef'
 };
 
 function Card(id, name) {
@@ -32,7 +32,7 @@ removeCard: function() {
       return resp.json();
     })
     .then(function(resp) {
-      self.element.parentNode.removeChild(this.element);
+      self.element.parentNode.removeChild(self.element);
     });
   }
 };

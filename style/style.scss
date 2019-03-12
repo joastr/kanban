@@ -64,12 +64,24 @@ h2 {
     font-size: 2em;
 }
 
-h1 {
+%headlinefonts {
     font-family: $headline;
-    font-size: 4.5em;
     text-align: center;
     margin-top: 70px;
     font-weight: 700;
+}
+
+h1 {
+    @extend %headlinefonts;
+    font-size: 4.5em;
+    margin-bottom: 0;
+    
+}
+
+h3 {
+    @extend %headlinefonts;
+    font-size: 2em;
+    margin-top: 0;
 }
 
 .create-column {
@@ -139,7 +151,7 @@ h1 {
     margin-top: -300px;
 }
 
-#fish {
+#orange-fish {
     background: url(../photo/fish.svg);
     width: 300px;
     height: 250px;
@@ -152,4 +164,70 @@ h1 {
     margin: 0 auto;
     margin-top: 40px;
 
+}
+
+// SVG ANIMATION ------------------------------
+
+.swim {
+    animation: creature_swim 12s infinite;
+    -webkit-animation: creature_swim 12s infinite; /* dla Google Chrome, Safari, Opera 15+ */
+}
+
+@keyframes creature_swim
+      {
+        0% { transform: translate(30px, 0); }
+        25% { transform: translate(50px, -20px); }
+        50% { transform: translate(120px, -60px); }
+        75% { transform: translate(200px, 0); }
+        100% { transform: translate(800px, -80px); }
+      }
+
+
+.swim-yellow {
+    animation: swim_yellow 12s infinite none running;
+    -webkit-animation: swim_yellow linear 22s infinite none running;
+    
+}
+
+@keyframes swim_yellow
+{
+    0% { transform: translate(-70px, 0); }
+    10% { transform: translate(-200px, -20px); }
+    20% { transform: translate(-350px, -60px); }
+    30% { transform: translate(-500px, -40px); }
+    40% { transform: translate(-700px, 0); }
+    50% { transform: translate(-800px, -30px); }
+    60% { transform: matrix(-1, 0, 0, 1, -680, 0);}
+    70% { transform: matrix(-1, 0, 0, 1, -500, 10); }
+    80% { transform: matrix(-1, 0, 0, 1, -300, -20); }
+    90% { transform: matrix(-1, 0, 0, 1, -200, -30); }
+    100% { transform: matrix(-1, 0, 0, 1, 0, 0); }
+}
+
+.orange-fish {
+    animation: orange_fish 4s infinite alternate none running;
+    -webkit-animation: orange_fish linear 4s infinite alternate none running;
+}
+
+@keyframes orange_fish
+{
+    0% {transform: skewY(0deg);}
+    25% {transform: skew(5deg, 5deg);}
+    50% {transform: skew(-5deg, -5deg);}
+    75% {transform: skew(5deg, 3deg);}
+    100% {transform: skewY(-5deg,)}
+}
+
+.fly-rotate{
+   
+    animation: fly_rotate 5s linear infinite none running;
+
+  }
+
+
+@keyframes fly_rotate { 
+    100% { 
+        motion-offset: 100%;
+        offset-distance: 100%;
+      } 
 }
