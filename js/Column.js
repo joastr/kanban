@@ -1,4 +1,4 @@
-
+"use strict";
 var baseUrl = 'https://kodilla.com/pl/bootcamp-api';
 var prefix = "https://cors-anywhere.herokuapp.com/";
 var myHeaders = {
@@ -8,12 +8,12 @@ var myHeaders = {
 
 
 function Column(id, name) {
-    var self= this;
+    let self= this;
     this.id = id;
     this.name = name || 'No name given';
     this.element = generateTemplate('column-template', { name: this.name, id: this.id });
 
-    this.element.querySelector('.column').addEventListener('click', function (event) {
+    this.element.querySelector('.column').addEventListener('click', (event) => {
       if (event.target.classList.contains('btn-delete')) {
             self.removeColumn();
       }
@@ -30,15 +30,12 @@ function Column(id, name) {
                 headers: myHeaders,
                 body: data,
             })
-        .then(function(res) {
+        .then((res) => {
             return res.json();
         })
-        .then(function(resp) {
+        .then((resp) => {
             var card = new Card(resp.id, cardName);
-            console.log(card);
-            
             self.addCard(card);
-            console.log('addCard function attr', card);
         });
       }
       
@@ -52,10 +49,10 @@ Column.prototype = {
   removeColumn: function() {
     var self = this;
     fetch(prefix + baseUrl + '/column/' + self.id, { method: 'DELETE', headers: myHeaders })
-      .then(function(resp) {
+      .then((resp) => {
         return resp.json();
       })
-      .then(function(resp) {
+      .then((resp) => {
         self.element.parentNode.removeChild(self.element);
       });
   }

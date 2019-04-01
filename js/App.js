@@ -1,16 +1,8 @@
-// OGÓLNA FUNKCJA
-/*function randomString() {
-	var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ'.split();
-	var str = '', i;
-	for (i = 0; i < 10; i++) {
-	  str += chars[Math.floor(Math.random() * chars.length)];
-	}
-	return str;
-}
-*/
+"use strict";
+// General function
 function generateTemplate(name, data, basicElement) {
-  	var template = document.getElementById(name).innerHTML;
-  	var element = document.createElement(basicElement || 'div');
+  	const template = document.getElementById(name).innerHTML;
+  	const element = document.createElement(basicElement || 'div');
   
   	Mustache.parse(template);
   	element.innerHTML = Mustache.render(template, data);
@@ -28,26 +20,23 @@ var myHeaders = {
 };
 
 fetch(prefix + baseUrl + '/board', { headers: myHeaders })
-  .then(function(resp) {
+  .then((resp) => {
     return resp.json();
   })
-  .then(function(resp) {
+  .then((resp) => {
     setupColumns(resp.columns);
   });
 
   function setupColumns(columns) {
-    columns.forEach(function (column) {
-          var col = new Column(column.id, column.name);
+    columns.forEach((column) => {
+      let col = new Column(column.id, column.name);
       board.addColumn(col);
-      setupCards(col, column.cards);
-      console.log('kolumna', columns);
-      console.log('kolumna col', col);
-      
+      setupCards(col, column.cards);      
     });
   }
 
   function setupCards(col, cards) {
-	cards.forEach(function (card) {
+	cards.forEach((card) => {
     var cardObj = new Card(card.id, card.name);
   	col.addCard(cardObj);
 	});

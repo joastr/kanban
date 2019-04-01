@@ -45,23 +45,15 @@ outline-offset: 0;
 
 .card-description {
     display: inline-block;
-}
-
-ul {
-    padding-left: 0;
-}
-
-h1,h2,h3,p {
-    color: $brown;
-}
-
-p {
     font-family: $font;
 }
 
-h2 {
-    font-family: $headline;
-    font-size: 2em;
+.column-card-list {
+    padding-left: 0;
+}
+
+.title, .subtitle, .column-title, .card-description {
+    color: $brown;
 }
 
 %headlinefonts {
@@ -71,14 +63,13 @@ h2 {
     font-weight: 700;
 }
 
-h1 {
+.title {
     @extend %headlinefonts;
     font-size: 4.5em;
-    margin-bottom: 0;
-    
+    margin-bottom: 0;   
 }
 
-h3 {
+.subtitle {
     @extend %headlinefonts;
     font-size: 2em;
     margin-top: 0;
@@ -109,7 +100,7 @@ h3 {
 
 }
 
-.column{
+.column {
     background-color: $sand;
     border-radius: 20px;
     padding: 40px;
@@ -163,7 +154,6 @@ h3 {
     @extend %flex-container;
     margin: 0 auto;
     margin-top: 40px;
-
 }
 
 // SVG ANIMATION ------------------------------
@@ -173,20 +163,18 @@ h3 {
     -webkit-animation: creature_swim 12s infinite; /* dla Google Chrome, Safari, Opera 15+ */
 }
 
-@keyframes creature_swim
-      {
-        0% { transform: translate(30px, 0); }
-        25% { transform: translate(50px, -20px); }
-        50% { transform: translate(120px, -60px); }
-        75% { transform: translate(200px, 0); }
-        100% { transform: translate(800px, -80px); }
-      }
+@keyframes creature_swim{
+    0% { transform: translate(30px, 0); }
+    25% { transform: translate(50px, -20px); }
+    50% { transform: translate(120px, -60px); }
+    75% { transform: translate(200px, 0); }
+    100% { transform: translate(800px, -80px); }
+}
 
 
 .swim-yellow {
     animation: swim_yellow 12s infinite none running;
-    -webkit-animation: swim_yellow linear 22s infinite none running;
-    
+    -webkit-animation: swim_yellow linear 22s infinite none running;    
 }
 
 @keyframes swim_yellow
@@ -219,15 +207,12 @@ h3 {
 }
 
 .fly-rotate{
-   
     animation: fly_rotate 5s linear infinite none running;
-
   }
-
 
 @keyframes fly_rotate { 
     100% { 
         motion-offset: 100%;
         offset-distance: 100%;
-      } 
+    } 
 }

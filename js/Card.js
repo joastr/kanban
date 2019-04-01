@@ -1,4 +1,5 @@
-// KLASA KANBAN CARD
+'use strict'
+// class KANBAN CARD
 
 var baseUrl = 'https://kodilla.com/pl/bootcamp-api';
 var prefix = "https://cors-anywhere.herokuapp.com/";
@@ -14,7 +15,7 @@ function Card(id, name) {
     this.name = name || 'No name given';
     this.element = generateTemplate('card-template', { description: this.name }, 'li');
 
-    this.element.querySelector('.card').addEventListener('click', function (event) {
+    this.element.querySelector('.card').addEventListener('click', (event) => {
       event.stopPropagation();
 
       if (event.target.classList.contains('btn-delete')) {
@@ -24,14 +25,14 @@ function Card(id, name) {
 }
 Card.prototype = {
   
-removeCard: function() {
+removeCard: () => {
   var self = this;
 
   fetch(prefix + baseUrl + '/card/' + self.id, { method: 'DELETE', headers: myHeaders })
-    .then(function(resp) {
+    .then((resp) => {
       return resp.json();
     })
-    .then(function(resp) {
+    .then((resp) => {
       self.element.parentNode.removeChild(self.element);
     });
   }
